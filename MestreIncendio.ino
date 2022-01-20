@@ -38,10 +38,11 @@ SoftwareSerial SWSerial(4, 5);  //D2, D1 : Será usada a serial por software par
 char endereco_api_thingspeak[] = "api.thingspeak.com";
 String chave_escrita_thingspeak = "DMU34DLNR83EQP4G";  /* Coloque aqui sua chave de escrita do seu canal */
 unsigned long last_connection_time;
+bool first_time=true;
 
 //constantes e variáveis globais
 unsigned long millisTarefa1 = millis();
-const unsigned long timeGetInfo =600000;
+const unsigned long timeGetInfo =120000;  //Tempo para puxar dados do sensor
 char EnderecoAPIThingSpeak[] = "api.thingspeak.com";
 //String ChaveEscritaThingSpeak = "6S9XXXXXXXXXX5T4"; //Write API Key da sua conta no ThingSpeak.com
 
@@ -139,8 +140,9 @@ void loop() {
     /* Garante que a conexão wi-fi esteja ativa */
     verifica_conexao_wifi();
    
-if ((millis() - millisTarefa1)>timeGetInfo)
+if (((millis() - millisTarefa1)>timeGetInfo) || (first_time==true))
 {
+        first_time=false;
         //int id_radio=listaEndDevices[id];
         millisTarefa1=millis();
         id=listaEndDevices[polingID%nRadios];
