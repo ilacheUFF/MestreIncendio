@@ -26,7 +26,9 @@ SoftwareSerial SWSerial(4, 5);  //D2, D1 : Será usada a serial por software par
 //#define SSID_REDE "Federal 2014" /* coloque aqui o nome da rede que se deseja conectar */
 //#define SENHA_REDE "bucaramanga" /* coloque aqui a senha da rede que se deseja conectar */
 #define SSID_REDE "ENG_TER_2G" /* coloque aqui o nome da rede que se deseja conectar */
-#define SENHA_REDE "engenharia235" /* coloque aqui a senha da rede que se deseja conectar *
+#define SENHA_REDE "engenharia235" /* coloque aqui a senha da rede que se deseja conectar */
+//#define SSID_REDE "iPhone de Ivan" /* coloque aqui o nome da rede que se deseja conectar *
+//#define SENHA_REDE "1234567n" /* coloque aqui a senha da rede que se deseja conect
 
 
 //#define INTERVALO_ENVIO_THINGSPEAK 60000 /* intervalo entre envios de dados ao ThingSpeak (em ms) */
@@ -42,7 +44,7 @@ bool first_time=true;
 
 //constantes e variáveis globais
 unsigned long millisTarefa1 = millis();
-const unsigned long timeGetInfo =120000;  //Tempo para puxar dados do sensor
+const unsigned long timeGetInfo =1200000;  //Tempo para puxar dados do sensor 20 minutos
 char EnderecoAPIThingSpeak[] = "api.thingspeak.com";
 //String ChaveEscritaThingSpeak = "6S9XXXXXXXXXX5T4"; //Write API Key da sua conta no ThingSpeak.com
 
